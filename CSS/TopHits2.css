@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito:wght@600&effect=emboss");
+@media screen and (max-width: 900px) {
+  nav li {
+    margin-left: 1em;
+    margin-right: 0;
+  }
+  nav a {
+    font-size: 1rem;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 10vh 20vh 36vh 34vh;
+  }
+
+  .navbar {
+    grid-column: 1 / span 1;
+  }
+
+  .songimg {
+    grid-row: 2/3;
+  }
+  .image {
+    transform: scale(0.5);
+  }
+
+  .list {
+    grid-row: 3/4;
+    height: 36vh;
+  }
+  .list-title {
+    border-top: 1px solid ivory;
+    padding-bottom: 0;
+    font-size: 2em;
+    display: none;
+  }
+  .name {
+    font-size: 1em;
+  }
+
+  .player {
+    grid-row: 4/5;
+
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 4vh 4vh 10vh 12vh;
+  }
+  #progressbar {
+    width: 80vw;
+    padding: 2px;
+    /* display: flex;
+    justify-content: center; */
+    margin: 1vh 9vw 1vh 9vw;
+
+    grid-row: 1/2;
+  }
+  .time {
+    margin: 0 5vw 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-row: 2/3;
+  }
+
+  #songtitle {
+    font-size: 4vh;
+    margin: 0.5vh 3vw;
+    grid-row: 3/4;
+  }
+  .buttons {
+    font-size: 6vh;
+    margin: 1vh 2vw;
+  }
+
+  .play-container {
+    grid-row: 4/5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

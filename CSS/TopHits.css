@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Roboto&display=swap");
+
+:root {
+  --background: rgb(0, 0, 0);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+header {
+  background: var(--background);
+  display: grid;
+  grid-template-columns: 0.25fr auto minmax(30vh, 6fr) 0.5fr;
+  min-height: 10vh;
+}
+
+.logo {
+  background-color: black;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+}
+
+nav {
+  grid-column: 3/4;
+  background: var(--background);
+  display: flex; /* ye flex woh poore ul ko 1 content samzh ke postion change karta hai*/
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+nav ul {
+  display: flex; /* ye flex side by side karega content ko */
+  justify-content: flex-end;
+  list-style: none;
+}
+nav li {
+  margin-left: 10px;
+}
+nav a {
+  color: rgba(255, 250, 250, 0.877);
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
+nav a:hover {
+  color: rgb(255, 255, 255);
+}
+nav a::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  top: -0.75em;
+  right: 0;
+  left: 0;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 150ms;
+}
+nav a:hover::before {
+  transform: scale(1, 1);
+}
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito:wght@600&effect=emboss");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    black,
+    black,
+    rgb(63, 63, 63),
+    black,
+    black
+  );
+}
+.material-icons {
+  z-index: 1000000;
+}
+.container {
+  display: grid;
+  grid-template-columns: 35vw 65vw;
+  grid-template-rows: 10vh 50vh 10vh 30vh;
+}
+body {
+  background-image: url();
+  background-size: 50%;
+}
+.navbar {
+  grid-column: 1/3;
+}
+.songimg {
+  background: var(--img-background);
+  background: antiquewhite;
+  backdrop-filter: blur(0.5em) contrast(200%) grayscale(100%); /* makes bakground blurry  */
+
+  color: white;
+  transition: background ease-in-out 100ms;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow-y: hidden; // would have worked if we could set a background image 
+   overflow-x: hidden;     //but we cant bcuz we have to set that blury background effect  */
+
+  grid-row: 2/3;
+}
+
+/* SONG LIST GRID */
+.list-title {
+  background: rgb(0, 0, 0);
+  text-align: center;
+  padding-bottom: 3vh;
+  color: ivory;
+  font-size: 4em;
+  font-weight: 800;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: white;
+  font-family: "Fugaz One", cursive;
+}
+.list-title:hover {
+  color: seashell;
+  text-shadow: rgb(255, 255, 255);
+}
+
+.list {
+  background-color: rgb(107, 105, 105);
+  background-repeat: round;
+  color: snow;
+  grid-row: 2/5;
+  height: 90vh;
+  /* overflow-y: hidden; */
+
+  overflow-y: auto;
+}
+/*  
+.list:hover {
+  overflow-y: auto;
+} */
+
+.list-container {
+  backdrop-filter: blur(0.1em);
+  background-color: rgba(252, 252, 252, 0.048);
+  margin: auto;
+}
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4vh 1vw;
+  font-family: "Fugaz", sans-serif;
+  font-size: 2em;
+  border-bottom: 1px solid black;
+}
+.name:hover {
+  background: hsl(0, 0%, 0%);
+}
+.name a {
+  text-decoration: none;
+  color: snow;
+  font-size: 20px;
+}
+.fa-play-circle {
+  padding-left: 1vw;
+  padding-right: 4vw;
+  cursor: pointer;
+}
+#songtitle {
+  font-size: 20px;
+}
+.list-title{
+  font-size: 30px;
+}
+.fa-pause-circle {
+  padding-left: 1vw;
+  padding-right: 4vw;
+  cursor: pointer;
+}
+
+.fa-play {
+  font-size: 8vh;
+}
+.buttons {
+  text-decoration: none;
+  margin: 3vh 1vw;
+  font-size: 7vh;
+  color: snow;
+}
+.buttons:hover {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.815);
+}
+#songtitle {
+  font-size: 4vh;
+  margin: 3px;
+  color: seashell;
+  text-align: center;
+}
+.play-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#progressbar {
+  width: 30vw;
+  /* padding:0.5em; */
+  margin: 2vh 1.5vw;
+}
+.time {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  margin-right: 1vw;
+  margin-bottom: 2vh;
+  /* left: 14vw; */
+  color: white;
+}
+.player {
+  background: rgb(10, 10, 10);
+  border: 1px white;
+  grid-row: 3/5;
+}
+ .img-container img{
+    width:240px;
+} 

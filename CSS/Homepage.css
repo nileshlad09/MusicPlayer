@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'sans-serif',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color: rgb(59, 57, 57);
+}
+.sidebar{
+    background-color:black;
+    width: 20%;
+    height: 150vh;
+    float: left;
+    padding-top: 20px;
+    position: fixed;
+}
+.sidebar div{
+    display: flex;   
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    width: 220px;
+    height: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.sidebar div img{
+    border-radius: 40px;
+    width: 40px;
+    float: left;
+    padding-left: 10px;
+}
+.sidebar ul{
+    padding: 20px 0 0 20px;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 50px;
+    
+    
+}
+.sidebar div h4{
+    padding-left: 10px;
+}
+.home{
+background-color: rgba(114, 111, 111, 0.561);
+border-radius: 10px;
+width: 16vw;
+}
+
+
+.navbar{
+    float: right;
+    width: 80%;
+    background-color: rgba(24, 22, 22, 0.883); 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.navbar h3{
+    
+    color: white;
+    padding: 0 10px 0 20px;
+    font-size: 25px;
+
+}
+
+.button{
+    position: absolute;
+    right: 2vw;
+}
+.button button{
+    height: 40px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.btn1{
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border-style: none;
+    width: 90px; 
+    
+}
+.btn2{
+    background-color: white;
+    border-radius: 20px;
+    width: 120px;
+}
+
+
+.container{
+    padding-top: 10px;
+    color: white;
+    align-items: center;
+    width: 80%;
+    float: right;
+   
+}
+.heading{
+    display: flex;
+    align-items: center;
+ 
+}
+.heading h3{
+    font-size: 25px;
+    padding-left: 30px;
+    /* padding-right: 60vw; */
+}
+.heading h5 a{
+    color: white;
+    text-decoration: none;
+}
+.container_1{
+    display: flex;
+    margin: 10px 30px;
+    padding-bottom: 10px;
+    overflow-x: scroll;
+    overflow: auto; 
+    white-space: nowrap; 
+    cursor: pointer;
+}
+.container_1::-webkit-scrollbar{
+    width: 0;
+}
+.img img{
+    padding-top: 20px; 
+     width:140px; 
+}
+.img{
+    background-color: rgb(44, 39, 39);
+     width:700px;
+    height: 200px; 
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 0 40px 25px 0;
+}
+.img h4{
+    padding-top: 10px;
+}
+
+
+.button button:hover{
+    cursor: pointer;
+}
+.img:hover{
+    background-color: rgb(26, 23, 23);
+}
+
+.bottom{
+    position: sticky;
+    height: 106px;
+    background-color: rgb(112, 93, 93);
+    color: white;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.icons{
+    margin: 15px;
+}
+.icons i{
+    cursor: pointer;
+}
+#progressbar{
+    width: 70vw;
+    cursor: pointer;
+}
+
+.songInfo{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 5vw;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.songInfo img{
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+#masterSongName{
+    font-size: 20px;
+    font-weight: bold;
+}
+.time{
+    display: flex;
+    position: absolute;
+    right: 5vw;
+}

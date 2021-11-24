@@ -1,0 +1,168 @@
+@media  screen and (max-width: 600px) {
+
+    .sidebar{
+        display: none;
+    }
+   .navbar{
+        
+        width: 100%;
+        
+    }
+    .navbar img{
+        width: 100px;
+        padding-left: 10px;
+    }
+    .fa-chevron-left, .fa-chevron-right{
+        display: none;
+    }
+    .songInfo img{
+        display: none;
+
+    }
+ .button{
+   margin-left:150px ;   
+  }
+.button button{
+    height: 30px;
+    width: 60px;
+    margin-right: 4px;
+    font-size: 12px;
+}
+.container{
+    width: 100%;
+}
+
+.container_1{
+    display: flex;
+    overflow-x: scroll;
+    overflow: auto; 
+    white-space: nowrap;
+    margin: 8px 17px;
+    cursor: none; 
+}
+
+.heading h3{
+    font-size: 20px;
+}
+.img{
+    height: 190px;
+    width: 190px;
+    margin: 0px 23px 0 0;
+}
+
+
+.img img{
+    width: 120px;
+    padding: 12px;
+}
+.heading h5 a{
+    display: none;
+}
+.img h4{
+    font-size: 14px;
+}
+
+}
+
+@media screen and (max-width:600px) and (min-width:500px) {
+    .button{
+         margin-left: 260px; 
+    }
+    .container{
+        width: 100%;
+    }
+    
+    .sidebar{
+        display: none;
+    }
+    
+   .navbar{
+        
+    width: 100%;
+    
+}
+}
+@media screen and (max-width:910px) and (min-width:600px) {
+  
+    .sidebar{
+        display: none;
+    }
+    .container{
+        width: 100%;
+    }
+    
+   .navbar{
+        
+    width: 100%;
+    
+}
+    .button {
+        margin-left: 300px; 
+    }
+    .sidebar a{
+        font-size: 15px;
+    }
+    .sidebar img{
+        width: 100px;
+    }
+    .sidebar i{
+        font-size: 15px;
+    }
+    .heading h3 {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:1200px) and (min-width:911px){
+    .button{
+        margin-left: 470px;
+    }
+    .Trending{
+        display: none;
+    }
+    .sidebar{
+        width: 30%;
+    }
+    .container{
+        width: 70%;
+    }
+    #progressbar{
+        width: 60vw;
+        cursor: pointer;
+    }
+
+}
+@media screen and (max-width: 400px){
+.button{
+     margin-left: 91px;
+
+}
+#masterSongName{
+    font-size: 12px;
+}
+.time{
+    right: 5vw;
+    font-size: 12px;
+}
+}
+@media screen and (max-width: 350px){
+    .button{
+         margin-left: 74px; 
+    }
+    #masterSongName{
+        font-size: 12px;
+    }
+    
+
+
+}
+@media screen and (min-width:600px){
+    .navbar img{
+        display: none;
+    }
+}
+@media screen and (min-width:1200px){
+    .Trending{
+        display: none;
+    }
+    
+}    
