@@ -11,7 +11,7 @@
   .container {
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 10vh 20vh 36vh 34vh;
+    grid-template-rows: 10vh 20vh 45vh 25vh;
   }
 
   .navbar {
@@ -21,13 +21,14 @@
   .songimg {
     grid-row: 2/3;
   }
-  .image {
+  .image  {
     transform: scale(0.5);
+    /* width: 30px; */
   }
 
   .list {
     grid-row: 3/4;
-    height: 36vh;
+    height: 45vh;
   }
   .list-title {
     border-top: 1px solid ivory;
@@ -41,10 +42,9 @@
 
   .player {
     grid-row: 4/5;
-
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 4vh 4vh 10vh 12vh;
+    grid-template-rows: 4vh 4vh 5vh 12vh;
   }
   #progressbar {
     width: 80vw;
@@ -79,4 +79,7 @@
     justify-content: center;
     align-items: flex-start;
   }
+  
+  
+
 }

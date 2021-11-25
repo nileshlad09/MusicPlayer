@@ -239,3 +239,6 @@ body {
  .img-container img{
     width:240px;
 } 
+.bottom{
+  display: none;
+}
