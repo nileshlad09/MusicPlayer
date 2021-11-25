@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     
     <title>Online music player</title>
 </head>
@@ -15,8 +15,8 @@
     <nav>
         <div class="navbar">
             <ul>
-                <li class="logo"><img src="/IMG/music icons.png" alt="ICON"></li>
-                <a href="/index.html"><li>Home</li></a>
+                <li class="logo"><img src="IMG/music icons.png" alt="ICON"></li>
+                <a href="index.html"><li>Home</li></a>
                 <li>About</li>
             </ul>
         </div>
@@ -35,7 +35,7 @@
                         <p id="volume_show">90</p>
                     </div>
                 </div>
-                <img id="ablum" src="/IMG/Dil Bechara.jfif" alt="">
+                <img id="ablum" src="IMG/Dil Bechara.jfif" alt="">
             </div>
 
         </div>
@@ -81,7 +81,7 @@
             <i class="fas  fa-2x fa-step-forward" id="next"></i>
         </div>
         <div class="songInfo">
-            <img src="/playing.gif" width="55px" alt="" id="gif"> <span id="masterSongName">Dil Bechara</span>
+            <img src="playing.gif" width="55px" alt="" id="gif"> <span id="masterSongName">Dil Bechara</span>
         </div>
         <div class="time">
             <h3 id="currentT">00:00 </h3>
@@ -90,10 +90,10 @@
         </div>
     </div>
     <script src="https://kit.fontawesome.com/08f9d9768c.js" crossorigin="anonymous"></script>
-    <script src="/JAVASRIPT/volume.js"></script>
+    <script src="JAVASRIPT/volume.js"></script>
     <script>
         let songIndex = 0;
-        let audioElement = new Audio('/SONGS/dil bechara/1.mp3');
+        let audioElement = new Audio('SONGS/dil bechara/1.mp3');
         let masterPlay = document.getElementById('masterPlay');
         let songItemplay = document.getElementsByClassName('songItemplay')
         let progressbar = document.getElementById('progressbar');
@@ -103,11 +103,11 @@
 
         let songs = [
 
-            { songName: "Dil Bechara", filePath: "/SONGS/dil bechara/1.mp3" },
-            { songName: "Friendzone", filePath: "/SONGS/dil bechara/2.mp3" },
-            { songName: "Main Tumhara", filePath: "/SONGS/dil bechara/3.mp3" },
-            { songName: "Khulke Jeene Ka", filePath: "/SONGS/dil bechara/4.mp3" },
-            { songName: "Taare Ginn", filePath: "/SONGS/dil bechara/5.mp3" },
+            { songName: "Dil Bechara", filePath: "SONGS/dil bechara/1.mp3" },
+            { songName: "Friendzone", filePath: "SONGS/dil bechara/2.mp3" },
+            { songName: "Main Tumhara", filePath: "SONGS/dil bechara/3.mp3" },
+            { songName: "Khulke Jeene Ka", filePath: "SONGS/dil bechara/4.mp3" },
+            { songName: "Taare Ginn", filePath: "SONGS/dil bechara/5.mp3" },
         ]
 
 
@@ -149,7 +149,7 @@
             songIndex += 1;
             makeAllPlays();
           }
-          audioElement.src = `/SONGS/dil bechara/${songIndex + 1}.mp3`;
+          audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
           audioElement.play();
           masterSongName.innerText = songs[songIndex].songName;
         }
@@ -173,7 +173,7 @@
                 e.target.classList.remove('fa-play-circle');
                 e.target.classList.add('fa-pause-circle');
                 masterSongName.innerText = songs[songIndex].songName;
-                audioElement.src = `/SONGS/dil bechara/${songIndex + 1}.mp3`;
+                audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
                 audioElement.currentTime = 0;
                 audioElement.play();
                 gif.style.opacity = 1;
@@ -197,7 +197,7 @@
                 songIndex += 1;
                 makeAllPlays();
             }
-            audioElement.src = `/SONGS/dil bechara/${songIndex + 1}.mp3`;
+            audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
             audioElement.currentTime = 0;
             audioElement.play();
@@ -215,7 +215,7 @@
                 songIndex -= 1;
                 makeAllPlays();
             }
-            audioElement.src = `/SONGS/dil bechara/${songIndex + 1}.mp3`;
+            audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
             audioElement.currentTime = 0;
             audioElement.play();
