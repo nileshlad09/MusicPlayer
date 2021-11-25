@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Online music player</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="navbar">
+        <ul>
+          <li class="logo"><img src="IMG/music icons.png" alt="ICON" /></li>
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+          <li>About</li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container_1">
+      <div class="song">
+        <h2>Baaghi-Hindi</h2>
+        <div class="songalbum">
+          <div class="left">
+            <div class="volume">
+              <input
+                type="range"
+                orient="vertical"
+                min="0"
+                max="100"
+                value="90"
+                onchange="volume_change()"
+                id="volume"
+              />
+              <i
+                class="fa fa-volume-up"
+                aria-hidden="true"
+                onclick="mute_sound()"
+                id="volume_icon"
+              ></i>
+              <p id="volume_show">90</p>
+            </div>
+          </div>
+          <img id="ablum" src="IMG/baaghi.jpg" alt="" />
+        </div>
+      </div>
+      <div>
+        <div class="songlist">
+          <span>Get Ready to Fight</span>
+          <span class="songplay"
+            ><span class="timestamp"
+              >03.24<i id="0" class="fas songItemplay fa-play-circle"></i></span
+          ></span>
+        </div>
+
+        <div class="songlist">
+          <span>Lets Talk about Love</span>
+          <span class="songplay"
+            ><span class="timestamp"
+              >03.21<i id="1" class="fas songItemplay fa-play-circle"></i></span
+          ></span>
+        </div>
+
+        <div class="songlist">
+          <span>Cham Cham</span>
+          <span class="songplay"
+            ><span class="timestamp"
+              >04.44<i id="2" class="fas songItemplay fa-play-circle"></i></span
+          ></span>
+        </div>
+
+        <div class="songlist">
+          <span>Agar Tu Hota</span>
+          <span class="songplay"
+            ><span class="timestamp"
+              >05.28<i id="3" class="fas songItemplay fa-play-circle"></i></span
+          ></span>
+        </div>
+
+        <div class="songlist">
+          <span>Sab Tera</span>
+          <span class="songplay"
+            ><span class="timestamp"
+              >03.48<i id="4" class="fas songItemplay fa-play-circle"></i></span
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <input
+        type="range"
+        name=""
+        id="progressbar"
+        min="0"
+        value="0"
+        max="100"
+      />
+      <div class="icons">
+        <i class="fas fa-2x fa-step-backward" id="previous"></i>
+        <i class="fas fa-2x fa-play-circle" id="masterPlay"></i>
+        <i class="fas fa-2x fa-step-forward" id="next"></i>
+      </div>
+      <div class="songInfo">
+        <img src="playing.gif" width="55px" alt="" id="gif" />
+        <span id="masterSongName">Get Ready to Fight</span>
+      </div>
+      <div class="time">
+        <h3 id="currentT">00:00</h3>
+        <h3>/</h3>
+        <h3 id="TotalDuration">00:00</h3>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/08f9d9768c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="JAVASRIPT/volume.js"></script>
+    <script>
+      let songIndex = 0;
+      let audioElement = new Audio("SONGS/Baaghi/1.mp3");
+      let masterPlay = document.getElementById("masterPlay");
+      let songItemplay = document.getElementsByClassName("songItemplay");
+      let progressbar = document.getElementById("progressbar");
+      let songItems = Array.from(document.getElementsByClassName("songItem"));
+      let masterSongName = document.getElementById("masterSongName");
+      let gif = document.getElementById("gif");
+
+      let songs = [
+        { songName: "Get Ready to Fight", filePath: "SONGS/Baaghi/1.mp3" },
+        { songName: "Lets Talk about Love", filePath: "SONGS/Baaghi/2.mp3" },
+        { songName: "Cham Cham", filePath: "SONGS/Baaghi/3.mp3" },
+        { songName: "Agar Tu Hota", filePath: "SONGS/Baaghi/4.mp3" },
+        { songName: "Sab Tera", filePath: "SONGS/Baaghi/5.mp3" },
+      ];
+
+      masterPlay.addEventListener("click", () => {
+        if (audioElement.paused || audioElement.currentTime <= 0) {
+          audioElement.play();
+          masterPlay.classList.remove("fa-play-circle");
+          masterPlay.classList.add("fa-pause-circle");
+          gif.style.opacity = 1;
+        } else {
+          audioElement.pause();
+          masterPlay.classList.add("fa-play-circle");
+          masterPlay.classList.remove("fa-pause-circle");
+          gif.style.opacity = 0;
+        }
+      });
+
+      audioElement.addEventListener("timeupdate", () => {
+        progress = parseInt(
+          (audioElement.currentTime / audioElement.duration) * 100
+        );
+        progressbar.value = progress;
+
+        let min_current = Math.floor(audioElement.currentTime / 60);
+        let sec_current = Math.floor(audioElement.currentTime % 60);
+
+        let min_duration = Math.floor(audioElement.duration / 60);
+        let sec_duration = Math.floor(audioElement.duration % 60);
+
+        if (sec_current < 10) {
+          sec_current = `0${sec_current}`;
+        }
+        currentT.innerHTML = `0${min_current}:${sec_current}`;
+        TotalDuration.innerHTML = `0${min_duration}:${sec_duration}`;
+
+        if (audioElement.currentTime == audioElement.duration) {
+          if (songIndex >= 4) {
+            songIndex = 0;
+          } else {
+            songIndex += 1;
+            makeAllPlays();
+          }
+          audioElement.src = `SONGS/Baaghi/${songIndex + 1}.mp3`;
+          audioElement.play();
+          masterSongName.innerText = songs[songIndex].songName;
+        }
+      });
+      progressbar.addEventListener("change", () => {
+        audioElement.currentTime =
+          (progressbar.value * audioElement.duration) / 100;
+      });
+
+      const makeAllPlays = () => {
+        Array.from(document.getElementsByClassName("songItemplay")).forEach(
+          (element) => {
+            element.classList.remove("fa-pause-circle");
+            element.classList.add("fa-play-circle");
+          }
+        );
+      };
+      Array.from(document.getElementsByClassName("songItemplay")).forEach(
+        (element) => {
+          element.addEventListener("click", (e) => {
+            songIndex = parseInt(e.target.id);
+            makeAllPlays();
+            e.target.classList.remove("fa-play-circle");
+            e.target.classList.add("fa-pause-circle");
+            masterSongName.innerText = songs[songIndex].songName;
+            audioElement.src = `SONGS/Baaghi/${songIndex + 1}.mp3`;
+            audioElement.currentTime = 0;
+            audioElement.play();
+            gif.style.opacity = 1;
+            masterPlay.classList.remove("fa-play-circle");
+            masterPlay.classList.add("fa-pause-circle");
+          });
+        }
+      );
+
+      // const makeAllPlays_1 = () => {
+      //     Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
+      //         element.classList.add('fa-pause-circle');
+      //         element.classList.remove('fa-play-circle');
+      //     })
+
+      // }
+      document.getElementById("next").addEventListener("click", () => {
+        if (songIndex >= 4) {
+          songIndex = 0;
+        } else {
+          songIndex += 1;
+          makeAllPlays();
+        }
+        audioElement.src = `SONGS/Baaghi/${songIndex + 1}.mp3`;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        masterPlay.classList.remove("fa-play-circle");
+        masterPlay.classList.add("fa-pause-circle");
+        makeAllPlays();
+        gif.style.opacity = 1;
+      });
+
+      document.getElementById("previous").addEventListener("click", () => {
+        if (songIndex <= 0) {
+          songIndex = -1;
+        } else {
+          songIndex -= 1;
+          makeAllPlays();
+        }
+        audioElement.src = `SONGS/Baaghi/${songIndex + 1}.mp3`;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        masterPlay.classList.remove("fa-play-circle");
+        masterPlay.classList.add("fa-pause-circle");
+        makeAllPlays();
+        gif.style.opacity = 1;
+      });
+    </script>
+  </body>
+</html>
