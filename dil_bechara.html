@@ -40,38 +40,18 @@
 
         </div>
         <div>
-            <div class="songlist">
-                <span>Dil Bechara</span>
-                <span class="songplay"><span class="timestamp">02.43<i id="0"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Friendzone</span>
-                <span class="songplay"><span class="timestamp">03.07<i id="1"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Main Tumhara</span>
-                <span class="songplay"><span class="timestamp">04.18<i id="2"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Khulke Jeene Ka</span>
-                <span class="songplay"><span class="timestamp">04.06<i id="3"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Taare Ginn</span>
-                <span class="songplay"><span class="timestamp">04.17<i id="4"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
+            <li class="songlist songItemplay"> <a  id="0">Dil Bechara 
+            </a>02.43</li>
+            <li class="songlist songItemplay"> <a  id="1">Friendzone 
+            </a>03.07</li>
+            <li class="songlist songItemplay"> <a  id="2">Main Tumhara 
+            </a>04.18</li>
+            <li class="songlist songItemplay"> <a  id="3">Khulke Jeene Ka
+            </a>04.06</li>
+            <li class="songlist songItemplay"> <a  id="4">Taare Ginn
+            </a>04:17</li>
         </div>
     </div>
-
     <div class="bottom">
 
         <input type="range" name="" id="progressbar" min="0" value="0" max="100">
@@ -140,6 +120,9 @@
             if (sec_current < 10) {
                 sec_current = `0${sec_current}`;
             }
+            if (sec_duration < 10) {
+    sec_duration = `0${sec_duration}`;
+}
             currentT.innerHTML = `0${min_current}:${sec_current}`
             TotalDuration.innerHTML = `0${min_duration}:${sec_duration}`
             if (audioElement.currentTime == audioElement.duration) {
@@ -147,7 +130,7 @@
             songIndex = 0;
           } else {
             songIndex += 1;
-            makeAllPlays();
+            
           }
           audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
           audioElement.play();
@@ -159,19 +142,10 @@
             audioElement.currentTime = progressbar.value * audioElement.duration / 100;
         })
 
-        const makeAllPlays = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.remove('fa-pause-circle');
-                element.classList.add('fa-play-circle');
-            })
-
-        }
         Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
             element.addEventListener('click', (e) => {
                 songIndex = parseInt(e.target.id);
-                makeAllPlays();
-                e.target.classList.remove('fa-play-circle');
-                e.target.classList.add('fa-pause-circle');
+            
                 masterSongName.innerText = songs[songIndex].songName;
                 audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
                 audioElement.currentTime = 0;
@@ -182,20 +156,13 @@
             })
         })
 
-        const makeAllPlays_1 = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.add('fa-pause-circle');
-                element.classList.remove('fa-play-circle');
-            })
-
-        }
         document.getElementById('next').addEventListener('click', () => {
             if (songIndex >= 4) {
                 songIndex = 0
             }
             else {
                 songIndex += 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -203,7 +170,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
             gif.style.opacity = 1;
         })
 
@@ -213,7 +180,7 @@
             }
             else {
                 songIndex -= 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/dil bechara/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -221,7 +188,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
             gif.style.opacity = 1;
         })
 

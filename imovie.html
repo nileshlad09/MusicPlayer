@@ -34,7 +34,7 @@
             
          </div>
         <div>
-         <div class="songlist">
+         <!-- <div class="songlist">
              <span>Pareshanayya</span>
              <span class="songplay"><span class="timestamp">05.03<i id="0" class="fas songItemplay fa-play-circle"></i></span></span>          
          </div>
@@ -57,7 +57,17 @@
         <div class="songlist">
             <span>Nuvvunte Naa Jathagaa</span>
             <span class="songplay"><span class="timestamp">04.13<i id="4" class="fas songItemplay fa-play-circle"></i></span></span>          
-        </div>
+        </div> -->
+        <li class="songlist songItemplay"> <a  id="0">Pareshanayya</a>05:03</li>
+      <li class="songlist songItemplay"> <a  id="1">Ladiyo
+        </a>04:41</li>
+      <li class="songlist songItemplay"> <a  id="2">Poolane Kunukeyamantaa</a>
+        05:06 </li>
+      <li class="songlist songItemplay"> <a  id="3">Ayila Ayila</a>
+        05:34
+      </li>
+      <li class="songlist songItemplay"> <a  id="4">Nuvvunte Naa Jathagaa</a> 04:13
+      </li>
         
         </div>
     </div>
@@ -144,7 +154,6 @@ const TotalDuration=document.getElementById('TotalDuration');
             songIndex = 0;
           } else {
             songIndex += 1;
-            makeAllPlays();
           }
           audioElement.src = `SONGS/Imovie/${songIndex + 1}.mp3`;
           audioElement.play();
@@ -155,19 +164,11 @@ progressbar.addEventListener('change', () => {
     audioElement.currentTime = progressbar.value * audioElement.duration / 100;
 })
 
-const makeAllPlays = () => {
-    Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-        element.classList.remove('fa-pause-circle');
-        element.classList.add('fa-play-circle');
-    })
 
-}
 Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
     element.addEventListener('click', (e) => {
         songIndex = parseInt(e.target.id);
-        makeAllPlays();
-        e.target.classList.remove('fa-play-circle');
-        e.target.classList.add('fa-pause-circle');
+    
         masterSongName.innerText = songs[songIndex].songName;
         audioElement.src = `SONGS/Imovie/${songIndex + 1}.mp3`;
         audioElement.currentTime = 0;
@@ -178,20 +179,14 @@ Array.from(document.getElementsByClassName('songItemplay')).forEach((element) =>
     })
 })
 
-const makeAllPlays_1 = () => {
-    Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-        element.classList.add('fa-pause-circle');
-        element.classList.remove('fa-play-circle');
-    })
 
-}
 document.getElementById('next').addEventListener('click', () => {
     if (songIndex >= 4) {
         songIndex = 0
     }
     else {
         songIndex += 1;
-        makeAllPlays();
+      
     }
     audioElement.src = `SONGS/Imovie/${songIndex + 1}.mp3`;
     masterSongName.innerText = songs[songIndex].songName;
@@ -199,7 +194,7 @@ document.getElementById('next').addEventListener('click', () => {
     audioElement.play();
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
-    makeAllPlays();
+   
 
 })
 
@@ -209,7 +204,7 @@ document.getElementById('previous').addEventListener('click', () => {
     }
     else {
         songIndex -= 1;
-        makeAllPlays();
+     
     }
     audioElement.src = `SONGS/Imovie/${songIndex + 1}.mp3`;
     masterSongName.innerText = songs[songIndex].songName;
@@ -217,7 +212,7 @@ document.getElementById('previous').addEventListener('click', () => {
     audioElement.play();
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
-    makeAllPlays();
+    
 
 })
 

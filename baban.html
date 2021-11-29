@@ -41,35 +41,17 @@
 
         </div>
         <div>
-            <div class="songlist">
-                <span>saaj Hyo Tuza</span>
-                <span class="songplay"><span class="timestamp">05.10<i id="0"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
+            <li class="songlist songItemplay"> <a  id="0">Saaj Ho Tuza</a>05:10
+            </li>
+            <li class="songlist songItemplay"> <a  id="1">Jagnyala Pankh Futale
+                        </a>04:22
+            </li>
+            <li class="songlist songItemplay"> <a  id="2">Shravan Mahina</a>04:55
+            </li>
+            <li class="songlist songItemplay"> <a  id="3">Godi Madhachi                    </a>05:07</li>
+            <li class="songlist songItemplay"> <a  id="4">Mohrachya Daravar</a>05:45
+            </li>
 
-            <div class="songlist">
-                <span>Jagnyala Pankh Futle </span>
-                <span class="songplay"><span class="timestamp">04.22<i id="1"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Shravan Mahina</span>
-                <span class="songplay"><span class="timestamp">04.55<i id="2"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Godi Madhachi</span>
-                <span class="songplay"><span class="timestamp">05.07<i id="3"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Mohrachya Daravar</span>
-                <span class="songplay"><span class="timestamp">05.45<i id="4"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
 
         </div>
     </div>
@@ -151,7 +133,7 @@
             songIndex = 0;
           } else {
             songIndex += 1;
-            makeAllPlays();
+            
           }
           audioElement.src = `SONGS/Baban2/${songIndex + 1}.mp3`;
           audioElement.play();
@@ -163,19 +145,11 @@
             audioElement.currentTime = progressbar.value * audioElement.duration / 100;
         })
 
-        const makeAllPlays = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.remove('fa-pause-circle');
-                element.classList.add('fa-play-circle');
-            })
-
-        }
         Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
             element.addEventListener('click', (e) => {
                 songIndex = parseInt(e.target.id);
-                makeAllPlays();
-                e.target.classList.remove('fa-play-circle');
-                e.target.classList.add('fa-pause-circle');
+                
+                
                 masterSongName.innerText = songs[songIndex].songName;
                 audioElement.src = `SONGS/Baban2/${songIndex + 1}.mp3`;
                 audioElement.currentTime = 0;
@@ -186,20 +160,14 @@
             })
         })
 
-        const makeAllPlays_1 = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.add('fa-pause-circle');
-                element.classList.remove('fa-play-circle');
-            })
-
-        }
+        
         document.getElementById('next').addEventListener('click', () => {
             if (songIndex >= 4) {
                 songIndex = 0
             }
             else {
                 songIndex += 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/Baban2/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -207,7 +175,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
 
         })
 
@@ -217,7 +185,7 @@
             }
             else {
                 songIndex -= 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/Baban2/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -225,7 +193,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
 
         })
 

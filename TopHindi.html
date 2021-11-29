@@ -1,270 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Top_10_Hindi</title>
-    <link rel="stylesheet" href="CSS/TopHits.css" />
-    <link rel="stylesheet" href="CSS/TopHits2.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-
-  <body>
-    <div class="container">
-      <div class="navbar">
-        <header>
-          <h1 class="logo"><img src="IMG/music icons.png" alt="logo" /></h1>
-          <nav>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
+    <link rel="stylesheet" href="CSS/top.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="try2.css"> -->
+    <title>Online music player</title>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
             <ul>
-              <li class="home">
-                <a href="index.html">Home</a>
-              </li>
-              <li class="contact"><a>Contact</a></li>
+                <li class="logo"><img src="IMG/music icons.png" alt="ICON"></li>
+                <a href="index.html">
+                    <li>Home</li>
+                </a>
+                <li>About</li>
+                <input type="text" name="" id="myInput" onkeyup="searchSong()">
             </ul>
-          </nav>
-        </header>
-      </div>
-      <div class="songimg">
-        <div class="img-container">
-          <!-- <img class="image" src="https://picsum.photos/250/250" alt="" /> -->
-          <img class="image" src="IMG/homepage/hindi-tophits.jfif" />
         </div>
-      </div>
-      <div class="list">
-        <div class="list-container">
-          <div class="list-title font-effect-emboss">Top 10 Hits</div>
+    </nav>
+    <div class="container_1">
 
-          <div class="song1 name">
-            <span><a>1.Najaa(Sooryavanshi)</a></span>
-            <span>
-              <a>3:02<i id="0" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song2 name">
-            <span> <a>2.Jab Koi Baat</a> </span>
-            <span>
-              <a>3.12<i id="1" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song3 name">
-            <span> <a>3.Tu Aake Dekh le </a> </span>
-            <span>
-              <a>5.03<i id="2" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song4 name">
-            <span> <a>4.Hawayein</a> </span>
-            <span>
-              <a>4.42<i id="3" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song5 name">
-            <span> <a>5.Ranjha</a> </span>
-            <span>
-              <a>3.14<i id="4" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song6 name">
-            <span> <a>6.Qaafirana </a> </span>
-            <span>
-              <a>6.16<i id="5" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song7 name">
-            <span> <a>7.Agar Tum Sath Ho </a> </span>
-            <span>
-              <a>3.12<i id="6" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song8 name">
-            <span> <a>8.Atrangi Yari</a></span>
-            <span>
-              <a>3:44<i id="7" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song9 name">
-            <span> <a>9.Dil Ko Karaar Aya</a> </span>
-            <span>
-              <a>2.56<i id="8" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
-          <div class="song10 name">
-            <span> <a>10.Shayad</a> </span>
-            <span>
-              <a>4:49<i id="9" class="songItemPlay fas fa-play-circle"></i></a>
-            </span>
-          </div>
+        <div class="song">
+            <h2>Hindi Top Hits</h2>
+
+            <div class="songalbum">
+                <div class="left">
+                    <div class="volume">
+                        <input type="range" orient="vertical" min="0" max="100" value="90" onchange="volume_change()"
+                            id="volume">
+                        <i class="fa fa-volume-up" aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
+                        <p id="volume_show">90</p>
+                    </div>
+                </div>
+                <img id="ablum" src="IMG/homepage/hindi-tophits.jfif" alt="">
+            </div>
         </div>
-      </div>
-      
-      <div class="player">
-        <input type="range" name="" id="progressbar" min="0" value="0" max="100"/>
-        <div class="time">
-          <h3 id="currentT">00:00</h3>
-          <h3>/</h3>
-          <h3 id="TotalDuration">00:00</h3>
+        <div class="scroll">
+            <ul id="myUL">
+                <li class="songlist songItemPlay"> <a href="#" id="0">Najaa <h6>Pav & Nikhita, Sooryavanshi </h6>
+                        </a>
+                    03:02</li>
+                <li class="songlist songItemPlay"> <a href="#" id="1">Jab Koi Baat <h6>Atif Aslam & Shirlet Setia
+                        </h6></a>03:12</li>
+                <li class="songlist songItemPlay"> <a href="#" id="2">Tu Aake Dekh le <h6>King
+                        </h6></a> 05:03 </li>
+                <li class="songlist songItemPlay"> <a href="#" id="3">Hawayein <h6>Pritam & Arijit Singh, Jab Harry Met Sejal</h6> </a> 04:42
+                </li>
+                <li class="songlist songItemPlay"> <a href="#" id="4">Ranjha <h6>B Praak & Jasleen, Shershaah</h6>
+                    </a> 03:14
+                </li>
+                <li class="songlist songItemPlay"> <a href="#" id="5">Qaafirana<h6>Arijit  & Nikhita, Kedarnath</h6> </a>06:16</li>
+                <li class="songlist songItemPlay"> <a href="#" id="6">Agar Tum Sath Ho<h6>Alka & Arijit, Tamasha</h6>
+                    </a> 03:12</li>
+                <li class="songlist songItemPlay"> <a href="#" id="7">Atrangi Yari <h6>Amitabh  & Farhan Akhtar, Wazir</h6>
+                    </a> 03:44 </li>
+                <li class="songlist songItemPlay"> <a href="#" id="8">Dil Ko Karaar Aya <h6>Neha Kakkar & Yasser Desai,
+                            </h6></a> 02:56
+                </li>
+                <li class="songlist songItemPlay"> <a href="#" id="9">Shayad <h6>Arijit Singh ,Love Aaj kal</h6>
+                    </a>04:49</li>
+            </ul>
         </div>
-        <div id="songtitle">Najaa(Sooryavanshi)</div>
-        <div class="play-container">
-          <a><i id="previous" class="fas  fa-step-backward buttons"></i></a>
-          <a><i id="masterPlay" class="fas  fa-play buttons"></i></a>
-          <a><i id="next" class="fas  fa-step-forward buttons"></i></a>
-        </div>
-      </div>
     </div>
+    <div class="bottom">
+
+        <div class="progressbar">
+            <!-- <i class="fas fa-random"></i> -->
+            <i id="repeat-plist" class="material-icons"> repeat</i>
+            <input type="range" name="" id="progressbar" min="0" value="0" max="100">
+
+        </div>
+        <div class="icons">
+            <i class="fas  fa-2x fa-step-backward" id="previous"></i>
+            <i class="fas  fa-2x fa-play-circle" id="masterPlay"></i>
+            <i class="fas  fa-2x fa-step-forward" id="next"></i>
+        </div>
+        <div class="songInfo">
+            <img src="playing.gif" width="55px" alt="" id="gif"> <span id="masterSongName">Najaa-Sooryavanshi</span>
+        </div>
+        <div class="time">
+            <h3 id="currentT">00:00 </h3>
+            <h3>/</h3>
+            <h3 id="TotalDuration">00:00</h3>
+        </div>
+    </div>
+    <script src="JAVASRIPT/search.js"></script>
+    <script src="https://kit.fontawesome.com/08f9d9768c.js" crossorigin="anonymous"></script>
+    <script src="JAVASRIPT/volume.js"></script>
     <script>
-      let songIndex = 0;
-      let masterPlay = document.getElementById("masterPlay");
-      let progressbar = document.getElementById("progressbar");
-      let audioElement = new Audio("SONGS/Top_10_Hindi/1.mp3");
-      let songItemPlay = document.getElementsByClassName("songItemPlay");
-      let next = document.getElementById("next");
-      let previous = document.getElementById("previous");
-      let songtitle = document.getElementById("songtitle");
+        let songIndex = 0;
+        let masterPlay = document.getElementById('masterPlay');
+        let progressbar = document.getElementById('progressbar');
+        // let audioElement = new Audio('SONGS/Top_10_Hindi/1.mp3');
+        let songItemPlay = document.getElementsByClassName('songItemPlay');
+        let next = document.getElementById('next');
+        let previous = document.getElementById('previous');
+        let masterSongName = document.getElementById('masterSongName');
 
-      let songs = [
-        {
-          songName: "Najaa(Sooryavanshi)",
-          filePath: "SONGS/Top_10_Hindi/1.mp3",
-        },
-        { songName: "Jab Koi Baat", filePath: "SONGS/Top_10_Hindi/2.mp3" },
-        { songName: "Tu Aake Dekh le", filePath: "SONGS/Top_10_Hindi/3.mp3" },
-        { songName: "Hawayein", filePath: "SONGS/Top_10_Hindi/4.mp3" },
-        { songName: "Ranjha", filePath: "SONGS/Top_10_Hindi/5.mp3" },
-        { songName: "Qaafirana", filePath: "SONGS/Top_10_Hindi/6.mp3" },
-        { songName: "Agar Tum Sath Ho", filePath: "SONGS/Top_10_Hindi/7.mp3" },
-        { songName: "Atrangi Yari", filePath: "SONGS/Top_10_Hindi/8.mp3" },
-        { songName: "Dil Ko Karaar Aya", filePath: "SONGS/Top_10_Hindi/9.mp3" },
-        { songName: "Shayad", filePath: "SONGS/Top_10_Hindi/10.mp3" },
-      ];
-      masterPlay.addEventListener("click", () => {
-        if (audioElement.paused || audioElement.currentTime <= 0) {
-          audioElement.play();
-          masterPlay.classList.remove("fa-play");
-          masterPlay.classList.add("fa-pause");
-        } else {
-          audioElement.pause();
-          masterPlay.classList.add("fa-play");
-          masterPlay.classList.remove("fa-pause");
-        }
-      });
-      audioElement.addEventListener("timeupdate", () => {
-        progress = parseInt(
-          (audioElement.currentTime / audioElement.duration) * 100
-        );
-        progressbar.value = progress;
 
-        let min_current = Math.floor(audioElement.currentTime / 60);
-        let sec_current = Math.floor(audioElement.currentTime % 60);
+        let songs = [
+            { songName: "Najaa-Sooryavanshi ", filePath: "SONGS/Top_10_Hindi/1.mp3" },
+            { songName: "Jab Koi Baat", filePath: "SONGS/Top_10_Hindi/2.mp3" },
+            { songName: "Tu Aake Dekh le", filePath: "SONGS/Top_10_Hindi/3.mp3" },
+            { songName: "Hawayein", filePath: "SONGS/Top_10_Hindi/4.mp3" },
+            { songName: "Ranjha", filePath: "SONGS/Top_10_Hindi/5.mp3" },
+            { songName: "Qaafirana", filePath: "SONGS/Top_10_Hindi/6.mp3" },
+            { songName: "Agar Tum Sath Ho", filePath: "SONGS/Top_10_Hindi/7.mp3" },
+            { songName: "Atrangi Yari", filePath: "SONGS/Top_10_Hindi/8.mp3" },
+            { songName: "Dil Ko Karaar Aya", filePath: "SONGS/Top_10_Hindi/9.mp3" },
+            { songName: "Shayad", filePath: "SONGS/Top_10_Hindi/10.mp3" },
+        ]
+        masterPlay.addEventListener('click', () => {
+            if (audioElement.paused || audioElement.currentTime <= 0) {
+                audioElement.play();
+                masterPlay.classList.remove('fa-play-circle');
+                masterPlay.classList.add('fa-pause-circle');
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement.pause();
+                masterPlay.classList.add('fa-play-circle');
+                masterPlay.classList.remove('fa-pause-circle');
+                gif.style.opacity = 0;
+            }
+        })
+        
+        progressbar.addEventListener('change', () => {
+            audioElement.currentTime = progressbar.value * audioElement.duration / 100;
+        })
 
-        let min_duration = Math.floor(audioElement.duration / 60);
-        let sec_duration = Math.floor(audioElement.duration % 60);
-
-        if (sec_current < 10) {
-          sec_current = `0${sec_current}`;
-        }
-        currentT.innerHTML = `0${min_current}:${sec_current}`;
-        TotalDuration.innerHTML = `0${min_duration}:${sec_duration}`;
-
-        if (audioElement.currentTime == audioElement.duration) {
-          if (songIndex >= 9) {
-            songIndex = 0;
-          } else {
-            songIndex += 1;
-            makeAllPlays();
-          }
-          audioElement.src = `SONGS/Top_10_Hindi/${songIndex + 1}.mp3`;
-          audioElement.play();
-          songtitle.innerText = songs[songIndex].songName;
-        }
-      });
-      progressbar.addEventListener("change", () => {
-        audioElement.currentTime =
-          (progressbar.value * audioElement.duration) / 100;
-      });
-
-      const makeAllPlays = () => {
-        Array.from(document.getElementsByClassName("songItemPlay")).forEach(
-          (element) => {
-            element.classList.remove("fa-pause-circle");
-            element.classList.add("fa-play-circle");
-          }
-        );
-      };
-      Array.from(document.getElementsByClassName("songItemPlay")).forEach(
-        (element) => {
-          element.addEventListener("click", (e) => {
-            songIndex = parseInt(e.target.id);
-            makeAllPlays();
-            e.target.classList.remove("fa-play-circle");
-            e.target.classList.add("fa-pause-circle");
+        Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
+            element.addEventListener('click', (e) => {
+                songIndex = parseInt(e.target.id);
+                
+                audioElement.src = `SONGS/Top_10_Hindi/${songIndex + 1}.mp3`;
+                masterSongName.innerText = songs[songIndex].songName;
+                audioElement.currentTime = 0;
+                gif.style.opacity = 1;
+                audioElement.play();
+                masterPlay.classList.add('fa-pause-circle');
+                masterPlay.classList.remove('fa-play-circle');
+            })
+        });
+        
+        const nextSong = () => {
+            if (songIndex >= 9) {
+                songIndex = 0;
+            }
+            else {
+                songIndex += 1
+                
+            }
             audioElement.src = `SONGS/Top_10_Hindi/${songIndex + 1}.mp3`;
-            songtitle.innerText = songs[songIndex].songName;
-            audioElement.currentTime = 0;
+            
+            masterSongName.innerText = songs[songIndex].songName;
             audioElement.play();
-            masterPlay.classList.add("fa-pause");
-            masterPlay.classList.remove("fa-play");
-          });
+            audioElement.currentTime = 0;
+            masterPlay.classList.add('fa-pause-circle');
+            masterPlay.classList.remove('fa-play-circle');
+            gif.style.opacity = 1;
         }
-      );
-      next.addEventListener("click", () => {
-        if (songIndex >= 10) {
-          songIndex = 0;
-        } else {
-          songIndex += 1;
-          makeAllPlays();
-        }
-        audioElement.src = `SONGS/Top_10_Hindi/${songIndex + 1}.mp3`;
-        songtitle.innerText = songs[songIndex].songName;
-        audioElement.play();
-        audioElement.currentTime = 0;
-        masterPlay.classList.add("fa-pause");
-        masterPlay.classList.remove("fa-play");
-        makeAllPlays();
-      });
+        next.addEventListener('click', () => {
+            nextSong();
+        })
 
-      previous.addEventListener("click", () => {
-        if (songIndex <= 0) {
-          songIndex = -1;
-        } else {
-          songIndex -= 1;
-          makeAllPlays();
-        }
-        audioElement.src = `SONGS/Top_10_Hindi/${songIndex + 1}.mp3`;
-        songtitle.innerText = songs[songIndex].songName;
-        audioElement.play();
-        audioElement.currentTime = 0;
-        masterPlay.classList.add("fa-pause");
-        masterPlay.classList.remove("fa-play");
-        makeAllPlays();
-      });
+        previous.addEventListener('click', () => {
+            if (songIndex <= 0) {
+                songIndex = -1;
+            }
+            else {
+                songIndex -= 1
+            }
+            audioElement.src = `SONGS/Top_10_Hindi/${songIndex + 1}.mp3`;
+            masterSongName.innerText = songs[songIndex].songName;
+            audioElement.play();
+            audioElement.currentTime = 0;
+            masterPlay.classList.add('fa-pause-circle');
+            masterPlay.classList.remove('fa-play-circle');
+            gif.style.opacity = 1;
+        })
+
+        const random = () =>{
+    let ranIndex =Math.floor((Math.random()*songItemPlay.length));
+    audioElement.src = `SONGS/Top_10_Hindi/${ranIndex + 1}.mp3`;
+    masterSongName.innerText = songs[ranIndex].songName;
+    audioElement.play();
+    audioElement.currentTime = 0;
+    console.log(ranIndex);
+}
+
     </script>
-  </body>
+
+</body>
+
 </html>
+
+

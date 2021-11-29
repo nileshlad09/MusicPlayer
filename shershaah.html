@@ -50,45 +50,16 @@
         </div>
       </div>
       <div>
-        <div class="songlist">
-          <span>Raataan Lambiyan</span>
-          <span class="songplay"
-            ><span class="timestamp"
-              >03.50<i id="0" class="fas songItemplay fa-play-circle"></i></span
-          ></span>
-        </div>
-
-        <div class="songlist">
-          <span>Ranjha</span>
-          <span class="songplay"
-            ><span class="timestamp"
-              >03.48<i id="1" class="fas songItemplay fa-play-circle"></i></span
-          ></span>
-        </div>
-
-        <div class="songlist">
-          <span>Jaihind Ki Sena</span>
-          <span class="songplay"
-            ><span class="timestamp"
-              >02.31<i id="2" class="fas songItemplay fa-play-circle"></i></span
-          ></span>
-        </div>
-
-        <div class="songlist">
-          <span>Kabhi Tumhe</span>
-          <span class="songplay"
-            ><span class="timestamp"
-              >03.50<i id="3" class="fas songItemplay fa-play-circle"></i></span
-          ></span>
-        </div>
-
-        <div class="songlist">
-          <span>Mann Bharryaa 2</span>
-          <span class="songplay"
-            ><span class="timestamp"
-              >04.26<i id="4" class="fas songItemplay fa-play-circle"></i></span
-          ></span>
-        </div>
+        <li class="songlist songItemplay"> <a  id="0">Raataan Lambiyan 
+        </a>03.50</li>
+        <li class="songlist songItemplay"> <a  id="1">Ranjha 
+        </a>03.48</li>
+        <li class="songlist songItemplay"> <a  id="2">Jaihind Ki Sena 
+        </a>02.31</li>
+        <li class="songlist songItemplay"> <a  id="3">Kabhi Tumhe 
+        </a>03.50</li>
+        <li class="songlist songItemplay"> <a  id="4">Mann Bharryaa 
+        </a>04:26</li>
       </div>
     </div>
 
@@ -176,7 +147,7 @@
             songIndex = 0;
           } else {
             songIndex += 1;
-            makeAllPlays();
+            
           }
           audioElement.src = `SONGS/Shershaah/${songIndex + 1}.mp3`;
           audioElement.play();
@@ -188,21 +159,11 @@
           (progressbar.value * audioElement.duration) / 100;
       });
 
-      const makeAllPlays = () => {
-        Array.from(document.getElementsByClassName("songItemplay")).forEach(
-          (element) => {
-            element.classList.remove("fa-pause-circle");
-            element.classList.add("fa-play-circle");
-          }
-        );
-      };
       Array.from(document.getElementsByClassName("songItemplay")).forEach(
         (element) => {
           element.addEventListener("click", (e) => {
             songIndex = parseInt(e.target.id);
-            makeAllPlays();
-            e.target.classList.remove("fa-play-circle");
-            e.target.classList.add("fa-pause-circle");
+            
             masterSongName.innerText = songs[songIndex].songName;
             audioElement.src = `SONGS/Shershaah/${songIndex + 1}.mp3`;
             audioElement.currentTime = 0;
@@ -214,20 +175,12 @@
         }
       );
 
-      const makeAllPlays_1 = () => {
-        Array.from(document.getElementsByClassName("songItemplay")).forEach(
-          (element) => {
-            element.classList.add("fa-pause-circle");
-            element.classList.remove("fa-play-circle");
-          }
-        );
-      };
       document.getElementById("next").addEventListener("click", () => {
         if (songIndex >= 4) {
           songIndex = 0;
         } else {
           songIndex += 1;
-          makeAllPlays();
+          
         }
         audioElement.src = `SONGS/Shershaah/${songIndex + 1}.mp3`;
         masterSongName.innerText = songs[songIndex].songName;
@@ -235,7 +188,7 @@
         audioElement.play();
         masterPlay.classList.remove("fa-play-circle");
         masterPlay.classList.add("fa-pause-circle");
-        makeAllPlays();
+        
         gif.style.opacity = 1;
       });
 
@@ -244,7 +197,7 @@
           songIndex = 0;
         } else {
           songIndex -= 1;
-          makeAllPlays();
+          
         }
         audioElement.src = `SONGS/Shershaah/${songIndex + 1}.mp3`;
         masterSongName.innerText = songs[songIndex].songName;
@@ -252,7 +205,7 @@
         audioElement.play();
         masterPlay.classList.remove("fa-play-circle");
         masterPlay.classList.add("fa-pause-circle");
-        makeAllPlays();
+        
         gif.style.opacity = 1;
       });
     </script>

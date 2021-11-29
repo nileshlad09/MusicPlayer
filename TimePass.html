@@ -40,33 +40,14 @@
 
         </div>
         <div>
-            <div class="songlist">
-                <span>Phulpakharu</span>
-                <span class="songplay"><span class="timestamp">02:50<i id="0"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Mala Ved Laagale</span>
-                <span class="songplay"><span class="timestamp">03:15<i id="1"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span> Daatale Reshami</span>
-                <span class="songplay"><span class="timestamp">03:44<i id="2"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-            <div class="songlist">
-                <span>Hi poli Saajuk ...</span>
-                <span class="songplay"><span class="timestamp">05.00<i id="3"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-            <div class="songlist">
-                <span>Passion of Govinda</span>
-                <span class="songplay"><span class="timestamp">01.59<i id="4"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
+            <li class="songlist songItemplay"> <a  id="0">Phulpakharu
+            </a>02:50</li>
+        <li class="songlist songItemplay"> <a  id="1">Mala Ved Lagale</a>03:15</li>
+        <li class="songlist songItemplay"> <a  id="2">Daatale Reshami</a>03:44
+        </li>
+        <li class="songlist songItemplay"> <a  id="3">Hi Poli Sajuk
+            </a>05:00</li>
+        <li class="songlist songItemplay"> <a  id="4">Passion Of Govinda</a>01:59</li>
         </div>
     </div>
 
@@ -144,6 +125,10 @@
             if (sec_current < 10) {
                 sec_current = `0${sec_current}`;
             }
+            
+            if (sec_duration < 10) {
+                sec_duration = `0${sec_duration}`;
+            }
             currentT.innerHTML = `0${min_current}:${sec_current}`
             TotalDuration.innerHTML = `0${min_duration}:${sec_duration}`
             if (audioElement.currentTime == audioElement.duration) {
@@ -151,7 +136,7 @@
             songIndex = 0;
           } else {
             songIndex += 1;
-            makeAllPlays();
+            
           }
           audioElement.src = `SONGS/Timepass/${songIndex + 1}.mp3`;
           audioElement.play();
@@ -162,19 +147,11 @@
             audioElement.currentTime = progressbar.value * audioElement.duration / 100;
         })
 
-        const makeAllPlays = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.remove('fa-pause-circle');
-                element.classList.add('fa-play-circle');
-            })
-
-        }
         Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
             element.addEventListener('click', (e) => {
                 songIndex = parseInt(e.target.id);
-                makeAllPlays();
-                e.target.classList.remove('fa-play-circle');
-                e.target.classList.add('fa-pause-circle');
+                
+                
                 masterSongName.innerText = songs[songIndex].songName;
                 audioElement.src = `SONGS/Timepass/${songIndex + 1}.mp3`;
                 audioElement.currentTime = 0;
@@ -185,20 +162,14 @@
             })
         })
 
-        const makeAllPlays_1 = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.add('fa-pause-circle');
-                element.classList.remove('fa-play-circle');
-            })
-
-        }
+        
         document.getElementById('next').addEventListener('click', () => {
             if (songIndex >= 4 ) {
                 songIndex = 0
             }
             else {
                 songIndex += 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/Timepass/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -206,7 +177,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
             gif.style.opacity = 1;
         })
 
@@ -216,7 +187,7 @@
             }
             else {
                 songIndex -= 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/Timepass/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -224,7 +195,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
             gif.style.opacity = 1;
         })
 

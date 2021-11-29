@@ -39,7 +39,7 @@
             </div>
         </div>
         <div>
-            <div class="songlist">
+            <!-- <div class="songlist">
                 <span>Comrade Anthem</span>
                 <span class="songplay"><span class="timestamp">03.28<i id="0"
                             class="fas songItemplay fa-play-circle"></i></span></span>
@@ -67,7 +67,17 @@
                 <span>The Canteen Song</span>
                 <span class="songplay"><span class="timestamp">02.55<i id="4"
                             class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
+            </div> -->
+            <li class="songlist songItemplay"> <a  id="0">Comrade Anthem</a>03:28</li>
+      <li class="songlist songItemplay"> <a  id="1">Gira Gira Gira
+        </a>04:42</li>
+      <li class="songlist songItemplay"> <a  id="2">Maama Choodaro </a>
+        04:21 </li>
+      <li class="songlist songItemplay"> <a  id="3">O Kalala Kathala</a>
+        04:30
+      </li>
+      <li class="songlist songItemplay"> <a  id="4">The Canteen Song</a> 02:27
+      </li>
 
         </div>
     </div>
@@ -154,7 +164,7 @@
             songIndex = 0;
           } else {
             songIndex += 1;
-            makeAllPlays();
+            
           }
           audioElement.src = `SONGS/DearComrade/${songIndex + 1}.mp3`;
           audioElement.play();
@@ -166,19 +176,10 @@
             audioElement.currentTime = progressbar.value * audioElement.duration / 100;
         })
 
-        const makeAllPlays = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.remove('fa-pause-circle');
-                element.classList.add('fa-play-circle');
-            })
-
-        }
+        
         Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
             element.addEventListener('click', (e) => {
                 songIndex = parseInt(e.target.id);
-                makeAllPlays();
-                e.target.classList.remove('fa-play-circle');
-                e.target.classList.add('fa-pause-circle');
                 masterSongName.innerText = songs[songIndex].songName;
                 audioElement.src = `SONGS/DearComrade/${songIndex + 1}.mp3`;
                 audioElement.currentTime = 0;
@@ -189,20 +190,14 @@
             })
         })
 
-        const makeAllPlays_1 = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.add('fa-pause-circle');
-                element.classList.remove('fa-play-circle');
-            })
-
-        }
+        
         document.getElementById('next').addEventListener('click', () => {
             if (songIndex >= 4) {
                 songIndex = 0
             }
             else {
                 songIndex += 1;
-                makeAllPlays();
+                
             }
             audioElement.src = `SONGS/DearComrade/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -210,7 +205,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+            
             gif.style.opacity = 1;
         })
 
@@ -220,7 +215,7 @@
             }
             else {
                 songIndex -= 1;
-                makeAllPlays();
+               
             }
             audioElement.src = `SONGS/DearComrade/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -228,7 +223,7 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
+           
             gif.style.opacity = 1;
         })
 

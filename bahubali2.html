@@ -41,35 +41,17 @@
 
         </div>
         <div>
-            <div class="songlist">
-                <span>Jiyo Re Baahubali</span>
-                <span class="songplay"><span class="timestamp">03:29<i id="0"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
 
-            <div class="songlist">
-                <span>Veeron Ke Veer Aa</span>
-                <span class="songplay"><span class="timestamp">03:27<i id="1"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Soja Zara</span>
-                <span class="songplay"><span class="timestamp">04:56<i id="2"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Jay-Jaykara</span>
-                <span class="songplay"><span class="timestamp">03:31<i id="3"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
-
-            <div class="songlist">
-                <span>Shivam</span>
-                <span class="songplay"><span class="timestamp">02:56<i id="4"
-                            class="fas songItemplay fa-play-circle"></i></span></span>
-            </div>
+            <li class="songlist songItemplay"> <a id="0">Jiyo Re Baahubali</a>03:29</li>
+            <li class="songlist songItemplay"> <a id="1">Veeron Ke Veer Aa
+                </a>03:27</li>
+            <li class="songlist songItemplay"> <a id="2">Soja Zara</a>
+                04:56 </li>
+            <li class="songlist songItemplay"> <a id="3">Jay-Jaykara</a>
+                03:31
+            </li>
+            <li class="songlist songItemplay"> <a id="4">Shivam</a> 02:56
+            </li>
 
         </div>
     </div>
@@ -153,34 +135,25 @@
             TotalDuration.innerHTML = `0${min_duration}:${sec_duration}`
 
             if (audioElement.currentTime == audioElement.duration) {
-          if (songIndex >= 4) {
-            songIndex = 0;
-          } else {
-            songIndex += 1;
-            makeAllPlays();
-          }
-          audioElement.src = `SONGS/bahubali2/${songIndex + 1}.mp3`;
-          audioElement.play();
-          masterSongName.innerText = songs[songIndex].songName;
-        }
+                if (songIndex >= 4) {
+                    songIndex = 0;
+                } else {
+                    songIndex += 1;
+
+                }
+                audioElement.src = `SONGS/bahubali2/${songIndex + 1}.mp3`;
+                audioElement.play();
+                masterSongName.innerText = songs[songIndex].songName;
+            }
         })
         progressbar.addEventListener('change', () => {
             audioElement.currentTime = progressbar.value * audioElement.duration / 100;
         })
 
-        const makeAllPlays = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.remove('fa-pause-circle');
-                element.classList.add('fa-play-circle');
-            })
 
-        }
         Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
             element.addEventListener('click', (e) => {
                 songIndex = parseInt(e.target.id);
-                makeAllPlays();
-                e.target.classList.remove('fa-play-circle');
-                e.target.classList.add('fa-pause-circle');
                 masterSongName.innerText = songs[songIndex].songName;
                 audioElement.src = `SONGS/bahubali2/${songIndex + 1}.mp3`;
                 audioElement.currentTime = 0;
@@ -191,20 +164,13 @@
             })
         })
 
-        const makeAllPlays_1 = () => {
-            Array.from(document.getElementsByClassName('songItemplay')).forEach((element) => {
-                element.classList.add('fa-pause-circle');
-                element.classList.remove('fa-play-circle');
-            })
 
-        }
         document.getElementById('next').addEventListener('click', () => {
             if (songIndex >= 4) {
                 songIndex = 0
             }
             else {
                 songIndex += 1;
-                makeAllPlays();
             }
             audioElement.src = `SONGS/bahubali2/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -212,7 +178,6 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
             gif.style.opacity = 1;
         })
 
@@ -222,7 +187,6 @@
             }
             else {
                 songIndex -= 1;
-                makeAllPlays();
             }
             audioElement.src = `SONGS/bahubali2/${songIndex + 1}.mp3`;
             masterSongName.innerText = songs[songIndex].songName;
@@ -230,7 +194,6 @@
             audioElement.play();
             masterPlay.classList.remove('fa-play-circle');
             masterPlay.classList.add('fa-pause-circle');
-            makeAllPlays();
             gif.style.opacity = 1;
         })
 
