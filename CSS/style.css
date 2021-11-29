@@ -57,15 +57,16 @@ nav ul li{
     width: 80%;
     font-size: 18px;
 }
+.songlist a{
+    cursor: pointer;
+}
 .list{
     margin-left: 3vw;
 }
 .timestamp{
     cursor: pointer;
 }
-.timestamp i{
-    padding-left: 7px;
-}
+
 
 
 .bottom{
