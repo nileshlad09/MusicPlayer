@@ -3,6 +3,7 @@ let volume_show = document.querySelector('#volume_show');
 let slider = document.querySelector('#duration_slider');
 let show_duration = document.querySelector('#show_duration');
 
+
         function volume_change() {
             volume_show.innerHTML = recent_volume.value;
             audioElement.volume = recent_volume.value / 100;
@@ -13,3 +14,5 @@ let show_duration = document.querySelector('#show_duration');
             volume.value = 0;
             volume_show.innerHTML = 0;
         }
+
+       
