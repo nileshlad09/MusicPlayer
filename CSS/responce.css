@@ -8,6 +8,11 @@
         width: 100%;
         
     }
+    .about a{
+        top: 3.2vh;
+        font-weight: 700;
+        font-size: 15px;
+    }
     .navbar img{
         width: 100px;
         padding-left: 10px;

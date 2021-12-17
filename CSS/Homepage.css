@@ -6,6 +6,7 @@
 body{
     background-color: rgb(59, 57, 57);
 }
+
 .sidebar{
     background-color:black;
     width: 20%;
@@ -56,14 +57,27 @@ width: 16vw;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
+    
 }
 .navbar h3{
     
     color: white;
     padding: 0 10px 0 20px;
     font-size: 25px;
+    font-weight: 700;
 
+}
+.about a{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+
+    top: 2.5vh;
+    right: 3vw;
+    
+    font-size: 20px;
+    
 }
 
 .button{

@@ -1,0 +1,12 @@
+About Project
+
+The objective of the Online Music Player Project is to manage the details of Music,Album,Album types etc.The project is
+ totally built on administritive end and thus only the administrator is guaranteed access. The purpose of the project is to build 
+an application program to reduce the manual work of management the music,performer,album.
+
+Features of the Online Music Player are as follows:- 
+-Provides the searching facilities based on various factors. Such as Music,Albums.
+-Manage the information of project.
+-Provides filter reports on Albums,Tracks.
+-Contains the Top listed Songs that are actually Superhit in the ongoing period.
+
